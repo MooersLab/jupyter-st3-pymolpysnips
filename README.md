@@ -1,10 +1,10 @@
 # jupyter-st3-pymolpysnips
 
-# Purpose
+## Purpose
 
-A PyMOL Python snippet library to edit live Jupyter notebook cells with Sublime Text 3 using GhostText.
-
-
+A PyMOL Python snippet library to edit live Jupyter notebook cells with Sublime Text 3 using browser plugin [GhostText](https://ghosttext.fregante.com/) and the [Ghost Text plugin for Sublime Text 3](https://forum.sublimetext.com/t/ghosttext/13734). 
+The later plugin links a server in Sublime Text 3 with any text area in the web browser including jupyter notebooks.
+This snippet library include snippets for loading PyMOL's Python API into an active Jupyter notebook.
 
 ## Installing and using snippets with Sublime Text 3
 The snippets are stored in separate files with the file extension `.sublime-snippet`.
