@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.do('label resn HOH ,\"W%s\" % (resi);')\n\
+$0]]></content>
+<tabTrigger>labelWatersW</tabTrigger>
+<scope></scope>
+<caption>Label waters with W and their reisude number.</caption>
+</snippet>

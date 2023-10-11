@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+cmd.do('alter ${1:chain A}, ss=\"${2:helix}\";')\n\
+cmd.do('label (%2),\"%3\";')\n\
+$0]]></content>
+<tabTrigger>labelSS</tabTrigger>
+<scope></scope>
+<caption>Label SS.</caption>
+</snippet>

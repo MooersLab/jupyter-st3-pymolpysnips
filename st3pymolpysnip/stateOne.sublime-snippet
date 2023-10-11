@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.create("newobject", "oldobject", "1", "1");\n\
+$0]]></content>
+<tabTrigger>stateOne</tabTrigger>
+<scope></scope>
+<caption>Select state 1 from a model with multiple states.</caption>
+</snippet>

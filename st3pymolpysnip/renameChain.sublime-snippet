@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+cmd.do('alter ${1:3fa0} and chain ${2:A}, chain=${3:\"C\"};')\n\
+cmd.do('sort;')\n\
+$0]]></content>
+<tabTrigger>renameChain</tabTrigger>
+<scope></scope>
+<caption>Rename a chain. </caption>
+</snippet>
