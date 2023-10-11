@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.do('disable ${1:sele}; ')\n\
+$0]]></content>
+<tabTrigger>undoSelection</tabTrigger>
+<scope></scope>
+<caption>Undo a selection.</caption>
+</snippet>

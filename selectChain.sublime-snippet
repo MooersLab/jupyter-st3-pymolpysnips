@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.do('select ${1:rna}, ${2:chain B};')\n\
+$0]]></content>
+<tabTrigger>selectChain</tabTrigger>
+<scope></scope>
+<caption>Select a chain.</caption>
+</snippet>
