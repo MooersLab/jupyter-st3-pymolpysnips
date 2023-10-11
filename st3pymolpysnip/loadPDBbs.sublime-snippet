@@ -1,0 +1,14 @@
+<snippet>
+<content><![CDATA[
+cmd.do('fetch ${1:3nd3},name=${1:3nd3}, type=pdb, async=0;')\n\
+cmd.do('hide (name H*);')\n\
+cmd.do('hide lines;')\n\
+cmd.do('show sticks;')\n\
+cmd.do('set stick_radius, ${2:1.2};')\n\
+cmd.do('set nb_sphere_radius, ${3:0.35};')\n\
+cmd.do('orient;')\n\
+$0]]></content>
+<tabTrigger>loadPDBbs</tabTrigger>
+<scope></scope>
+<caption>Load PDB ball-and-stick.</caption>
+</snippet>

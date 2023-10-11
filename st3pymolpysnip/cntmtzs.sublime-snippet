@@ -1,0 +1,12 @@
+<snippet>
+<content><![CDATA[
+print("Count the number of mtz structure factor files in current directory.");\n\
+print("Usage: cntmtzs");\n\
+myPath = os.getcwd();\n\
+mtzCounter = len(glob.glob1(myPath,"*.mtz"));\n\
+print("Number of number of mtz structure factor files in the current directory: ", mtzCounter);\n\
+$0]]></content>
+<tabTrigger>cntmtzs</tabTrigger>
+<scope></scope>
+<caption>Count number of *.mtz files in current directory.</caption>
+</snippet>

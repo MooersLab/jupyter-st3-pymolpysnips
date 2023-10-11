@@ -1,0 +1,30 @@
+<snippet>
+<content><![CDATA[
+cmd.do("bg_color white;")\n\
+cmd.do("hide everything;")\n\
+cmd.do("show spheres;")\n\
+cmd.do("set  stick_radius = 0.1;")\n\
+cmd.do("hide everything, HET;")\n\
+cmd.do("show spheres, HET;")\n\
+cmd.do("set sphere_quality=3;")\n\
+cmd.do("show sticks, resi 1102;")\n\
+cmd.do("from pymol import stored;")\n\
+cmd.do("# set the stored array equal to the b−values or use your own values; ")\n\
+cmd.do("stored.bb = [ ];")\n\
+cmd.do("iterate all, stored.bb.append(b);")\n\
+# scale the b−values;\n\
+cmd.do("M = max(stored.bb);")\n\
+cmd.do("scaledBB = map(lambda x: float (x/M), stored.bb);")\n\
+count = 0;\n\
+# set the sphere radii independently;\n\
+for x in scaledBB:\n\
+     cmd.set("sphere_scale", x ,"ID %s"%count)\n\
+     count = count + 1\n\
+cmd.do("spectrum b, selection=4gdx;")\n\
+cmd.do("space cmyk;")\n\
+cmd.do("set specular_intensity , 0.25;")\n\
+$0]]></content>
+<tabTrigger>scaleRadiusColorpy</tabTrigger>
+<scope></scope>
+<caption>Scale the radius and color of atoms as spheres by property in the B-value column.</caption>
+</snippet>

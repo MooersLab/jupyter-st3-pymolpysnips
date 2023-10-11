@@ -1,0 +1,28 @@
+<snippet>
+<content><![CDATA[
+cmd.do('bg_color white;')\n\
+cmd.do('set cartoon_oval_length, ${1:1.85}')\n\
+cmd.do('set cartoon_oval_width, ${2:0.5}')\n\
+cmd.do('cartoon oval;')\n\
+cmd.do('cartoon dumbbell;')\n\
+cmd.do('set cartoon_dumbbell_width, 0.2;')\n\
+cmd.do('set cartoon_dumbbell_radius, 0.4;')\n\
+cmd.do('set cartoon_ring_mode, ${3:3};')\n\
+cmd.do('# set the color of the backbone oval')\n\
+cmd.do('set cartoon_nucleic_acid_color, ${4:blue};')\n\
+cmd.do('select rna_A, resn A;')\n\
+cmd.do('select rna_C, resn C;')\n\
+cmd.do('select rna_G, resn G;')\n\
+cmd.do('select rna_U, resn U;')\n\
+cmd.do('select dna_T, resn T;')\n\
+cmd.do('color ${5:yellow}, rna_A;')\n\
+cmd.do('color ${6:red}, rna_C; ')\n\
+cmd.do('color ${7:gray40}, rna_G;')\n\
+cmd.do('color ${8:palecyan}, rna_U;')\n\
+cmd.do('color ${9:brown}, dna_T;')\n\
+cmd.do('as cartoon;')\n\
+$0]]></content>
+<tabTrigger>nucleicAcidDumbellCartoonColorbySequence</tabTrigger>
+<scope></scope>
+<caption>This code colors by the nucleotides by base seqence. The backcone is shown as a flatten ribbon with rolled edges that give the dumbell effect. The code can be applied to any nucleic acid. The code is dervied from the CR and DU shortcuts.</caption>
+</snippet>

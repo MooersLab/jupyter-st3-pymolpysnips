@@ -1,0 +1,12 @@
+<snippet>
+<content><![CDATA[
+cmd.do('run ~/${1:Pymol-script-repo}/colorblindfriendly.py;')\n\
+cmd.do('as cartoon;')\n\
+cmd.do('color cb_red, ss H;')\n\
+cmd.do('color cb_yellow,ss S;')\n\
+cmd.do('color cb_green, ss L+;')\n\
+$0]]></content>
+<tabTrigger>cblind</tabTrigger>
+<scope></scope>
+<caption>Apply color blind friendly to ribbon diagrams. Edit the path to the Pymol-script-repo in your computer account. See PyMOL wiki for more information about the Pymol-script-reo.</caption>
+</snippet>

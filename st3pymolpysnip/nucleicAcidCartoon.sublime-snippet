@@ -1,0 +1,11 @@
+<snippet>
+<content><![CDATA[
+cmd.do('set cartoon_ladder_radius, ${2:0.2};')\n\
+cmd.do('set cartoon_nucleic_acid_color, ${3:red};')\n\
+cmd.do('# The cartoon ring modes range from 0 to 4.;')\n\
+cmd.do('set cartoon_ring_mode, ${4:2};')\n\
+$0]]></content>
+<tabTrigger>nucleicAcidCartoon</tabTrigger>
+<scope></scope>
+<caption>Settings for nucliec acid cartoon. The dark blue used for electron density maps is called `density`. The cartoon_ladder_radius should be renamed the cartoon_rung_radius. The dimensions are in Angstroms.</caption>
+</snippet>

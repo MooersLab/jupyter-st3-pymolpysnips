@@ -1,0 +1,13 @@
+<snippet>
+<content><![CDATA[
+cmd.do('fetch ${1:1lw9}, async=0; ')\n\
+cmd.do('zoom (${2:resi 31 or resi 70}); ')\n\
+cmd.do('preset.technical(selection=\"all\"); ')\n\
+cmd.do('bg_color ${3:gray70}; ')\n\
+cmd.do('clip slab, 7,(${4:resi 31 or resi 70});')\n\
+cmd.do('rock;')\n\
+$0]]></content>
+<tabTrigger>his31asp70</tabTrigger>
+<scope></scope>
+<caption>Display the famous Asp70-His31 salt-bridge from T4 lysozyme that contributes3-5 kcal/mol to protein stability. </caption>
+</snippet>

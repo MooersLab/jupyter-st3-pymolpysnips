@@ -1,0 +1,40 @@
+<snippet>
+<content><![CDATA[
+def rvr(StoredView=0, decimal_places=2, outname="roundedview.txt"):\n\
+   """MIT License\n\
+    Copyright:\n\
+    Blaine Mooers and the OU Board of Regents\n\
+    University of Oklahoma Health Sciences Center\n\
+    Oklahoma City, OK 73104\n\
+    30 April 2020\n\
+    \n\
+    First run the following:\n\
+    \n\
+    from rdkit.Chem import PyMol\n\
+    s = PyMol.MolViewer()\n\
+    du = s.server.do\n\
+\n\
+    """\n\
+    StoredView = int(StoredView) decimal_places = int(decimal_places)\n\
+    #call the get_view function\n\
+    m = s.get_view(StoredView)\n\
+    #Make a list of the elements in the orientation matrix.\n\
+    myList = [m[0], m[1], m[2], m[3], m[4], m[5], m[6],m[7], m[8], m[9], \n\
+              m[10], m[11], m[12], m[13], m[14],m[15], m[16], m[17]]\n\
+    #Round off the matrix elements to two decimal places (two fractional places)\n\
+    #This rounding approach solved the problem of unwanted\n\
+    #whitespaces when I tried to use a string format statement\n\
+    myRoundedList = [round(elem, decimal_places) for elem in myList]\n\
+    #x is the string template for the output. The whitespace is required\n\
+    #between the "set_view" and "("\n\
+    x = "set_view ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17});"\n\
+    # Print to the command history window.\n\
+    print(x.format(*myRoundedList))\n\
+    #Write to a text file.\n\
+    myFile = open("roundedview.txt", "a") myFile.write(x.format(*myRoundedList) + "") myFile.close()\n\
+    return myRoundedList\n\
+$0]]></content>
+<tabTrigger>rvr</tabTrigger>
+<scope></scope>
+<caption>Return settings in rounded format while running PyMOL via the RCP server rdkit in a jupyter notebook. This is a modified version of the roundview.py script.</caption>
+</snippet>

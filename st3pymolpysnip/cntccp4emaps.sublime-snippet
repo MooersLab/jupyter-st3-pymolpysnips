@@ -1,0 +1,12 @@
+<snippet>
+<content><![CDATA[
+print("Count the number of ccp4 electron density files in current directory.");\n\
+print("Usage: cntccp4s");\n\
+myPath = os.getcwd();\n\
+ccp4Counter = len(glob.glob1(myPath,"*.pse"));\n\
+print("Number of number of ccp4 electron density files in the current directory: ", ccp4Counter);\n\
+$0]]></content>
+<tabTrigger>cntccp4emaps</tabTrigger>
+<scope></scope>
+<caption>Count number of *.ccp4 (electron density map) files in current directory.</caption>
+</snippet>

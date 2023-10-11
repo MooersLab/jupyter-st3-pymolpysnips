@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+cmd.do('fetch ${1:3nd4}, ${1:3nd4}_2fofc, type=2fofc, async=0;')\n\
+cmd.do('isosurface 2fofcmap, ${1:3nd4}_2fofc, 1, ${1:3nd4}, carve = 1.8;')\n\
+$0]]></content>
+<tabTrigger>fetch2FoFcIsosurface</tabTrigger>
+<scope></scope>
+<caption>Fetch 2FoFc map as an isosurface. Edit the PDB-ID code. Use lowercase letter for the fifth character to select a single chain. Render and display a contour of this map as a chicken wire representation.</caption>
+</snippet>

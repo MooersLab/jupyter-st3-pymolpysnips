@@ -1,0 +1,49 @@
+<snippet>
+<content><![CDATA[
+cmd.do('delete all;')\n\
+cmd.do('# Fetch the coordinates. Need internet connection.;')\n\
+cmd.do('fetch ${1:4dgr}, async=0;')\n\
+cmd.do('# Fetch the electron density map.;')\n\
+cmd.do('fetch ${1:4dgr}, type=2fofc,async=0;')\n\
+cmd.do('# create a selection out of the glycan;')\n\
+cmd.do('select ${2:LongGlycan}, resi ${3:469:477};')\n\
+cmd.do('orient ${2:LongGlycan};')\n\
+cmd.do('remove not ${2:LongGlycan};')\n\
+cmd.do('remove name H*;')\n\
+cmd.do('isosurface 2fofcmap, ${1:4dgr}_2fofc, 1, ${2:LongGlycan}, carve = 1.8;')\n\
+cmd.do('color density, 2fofcmap; ')\n\
+cmd.do('show sticks;')\n\
+cmd.do('show spheres;')\n\
+cmd.do('set stick_radius, .07;')\n\
+cmd.do('set sphere_scale, .19;')\n\
+cmd.do('set sphere_scale, .13, elem H;')\n\
+cmd.do('set bg_rgb=[1, 1, 1];')\n\
+cmd.do('set stick_quality, 50;')\n\
+cmd.do('set sphere_quality, 4;')\n\
+cmd.do('color gray85, elem C;')\n\
+cmd.do('color red, elem O;')\n\
+cmd.do('color slate, elem N;')\n\
+cmd.do('color gray98, elem H;')\n\
+cmd.do('set stick_color, gray50;')\n\
+cmd.do('set ray_trace_mode, 1;')\n\
+cmd.do('set ray_texture, 2;')\n\
+cmd.do('set antialias, 3;')\n\
+cmd.do('set ambient, 0.5;')\n\
+cmd.do('set spec_count, 5;')\n\
+cmd.do('set shininess, 50;')\n\
+cmd.do('set specular, 1;')\n\
+cmd.do('set reflect, .1;')\n\
+cmd.do('set dash_gap, 0;')\n\
+cmd.do('set dash_color, black;')\n\
+cmd.do('set dash_gap, .15;')\n\
+cmd.do('set dash_length, .05;')\n\
+cmd.do('set dash_round_ends, 0;')\n\
+cmd.do('set dash_radius, .05;')\n\
+cmd.do('set_view (0.34,-0.72,0.61,0.8,0.56,0.22,-0.51,0.4,0.77,0.0,0.0,-81.31,44.64,-9.02,58.62,65.34,97.28,-20.0);')\n\
+cmd.do('preset.ball_and_stick(\"all\",mode=1);')\n\
+cmd.do('draw;')\n\
+$0]]></content>
+<tabTrigger>carvedIsosurface</tabTrigger>
+<scope></scope>
+<caption>Carved isosurface representation of electron density.</caption>
+</snippet>

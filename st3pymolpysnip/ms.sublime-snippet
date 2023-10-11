@@ -1,0 +1,11 @@
+<snippet>
+<content><![CDATA[
+cmd.do('fetch ${1:3nd3}, name=${1:3nd3}, type=pdb, async=0;')\n\
+cmd.do('select ${2:temp}, ${1:3nd3} and chain ${4:A};')\n\
+cmd.do('run ${5:/Users/blaine-mooers/Scripts/PyMOLScripts/msms_pymol.py};')\n\
+cmd.do('calc_msms_area ${2:temp};')\n\
+$0]]></content>
+<tabTrigger>ms</tabTrigger>
+<scope></scope>
+<caption>Measure surface area of the selection with the msms_pymol.py script.</caption>
+</snippet>

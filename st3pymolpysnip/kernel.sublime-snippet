@@ -1,0 +1,18 @@
+<snippet>
+<content><![CDATA[
+{\n\
+ "argv": [\n\
+  "/Applications/PyMOL.app/Contents/bin/python",\n\
+  "-m",\n\
+  "ipykernel_launcher",\n\
+  "-f",\n\
+  "{connection_file}"\n\
+ ],\n\
+ "display_name": "pymol.python",\n\
+ "language": "python"\n\
+}\n\
+$0]]></content>
+<tabTrigger>kernel</tabTrigger>
+<scope></scope>
+<caption>A kernel.json file for runnig PyMOL python interpreter in the Jupyter notebook. This code should reside in a folder named pymol.python in the ~/Library/Jupyter/kernels.</caption>
+</snippet>

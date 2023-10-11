@@ -1,0 +1,13 @@
+<snippet>
+<content><![CDATA[
+cmd.do('Bfactors = []; ')\n\
+cmd.do('#  >>> edit the selection below, which is a range of residue numbers here.;')\n\
+cmd.do('iterate (resi ${1:133}), Bfactors.append(b);')\n\
+cmd.do('print(\"Sum = \", \"%.2f\" % (sum(Bfactors)));')\n\
+cmd.do('print(\"Number of atoms = \", len(Bfactors));')\n\
+cmd.do('print( \"Average B =\" , \"%.2f\" % ( sum(Bfactors)/float(len(Bfactors))));')\n\
+$0]]></content>
+<tabTrigger>averageB</tabTrigger>
+<scope></scope>
+<caption>Average the B-factors by using a regular list as opposed to a stored list in PyMOL. Edit the selection as needed. </caption>
+</snippet>

@@ -1,0 +1,12 @@
+<snippet>
+<content><![CDATA[
+cmd.do('set cartoon_highlight_color, grey;')\n\
+cmd.do('show cartoon;')\n\
+cmd.do('set cartoon_flat_sheets, 0;')\n\
+cmd.do('set cartoon_smooth_loops, 0;')\n\
+cmd.do('set cartoon_fancy_helices, 1;')\n\
+$0]]></content>
+<tabTrigger>molscriptRibbon</tabTrigger>
+<scope></scope>
+<caption>Show cartoon in the style of Molscript ribbons.</caption>
+</snippet>

@@ -1,0 +1,16 @@
+<snippet>
+<content><![CDATA[
+# scale the b−values;\n\
+M = max(stored.bb);\n\
+scaledBB = map(lambda x: float (x/M), stored.bb);\n\
+count = 0;\n\
+# set the sphere radii independently;\n\
+#[(cmd.set("sphere_scale", x ,"ID %s"%count); count = count + 1) for x in scaledBB]\n\
+for x in scaledBB:\n\
+  cmd.set("sphere_scale", x ,"ID %s"%count)\n\
+  count = count + 1\n\
+$0]]></content>
+<tabTrigger>scaleRadiusColorPythonInsertpy</tabTrigger>
+<scope></scope>
+<caption>Python block insert for scaleRadiusColorpy.</caption>
+</snippet>

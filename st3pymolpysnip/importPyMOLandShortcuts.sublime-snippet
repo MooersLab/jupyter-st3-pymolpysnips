@@ -1,0 +1,11 @@
+<snippet>
+<content><![CDATA[
+from pymol import cmd\n\
+from IPython.display import Image\n\
+PATH = "${1:/Users/blaine/}"\n\
+cmd.do("run ${2:/Users/blaine/Scripts/PyMOLScripts/pymolshortcuts.py")\n\
+$0]]></content>
+<tabTrigger>importPyMOLandShortcuts</tabTrigger>
+<scope></scope>
+<caption>Imports needed for most users of PyMOL in Jupyter. Combination of importPyMOL and importPythonDisplay.</caption>
+</snippet>

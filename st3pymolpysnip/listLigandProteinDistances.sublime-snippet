@@ -1,0 +1,56 @@
+<snippet>
+<content><![CDATA[
+from pymol import cmd\n\
+"""\n\
+Find all distances betwen all ligand atoms and all protein atoms. \n\
+\n\
+Adapted and updated from script by Dan Kulp posted here\n\
+https://sourceforge.net/p/pymol/mailman/message/10097804/\n\
+\n\
+There are probably better solutions like finding just the \n\
+distances to proein atoms within a certain distance from \n\
+the ligand.\n\
+\n\
+Due to the nested for loops, this script is takes several second\n\
+to run on a medium-sized human protein. This script is a \n\
+good candidate for vectorization. \n\
+\n\
+It is also a good candiate for becoming a function and a shortcut. \n\
+\n\
+"""\n\
+\n\
+# customize these lines to your protein.\n\
+cmd.fetch("6NEC")\n\
+cmd.select("prot","not resn XIN and not resn HOH and not chain C")\n\
+cmd.select("lig", "resn XIN and not chain C")\n\
+\n\
+dist_list = {}\n\
+pro_atoms = cmd.get_model("prot")\n\
+lig_atoms = cmd.get_model("lig")\n\
+\n\
+for l_at in lig_atoms.atom:\n\
+    for p_at in pro_atoms.atom:\n\
+        dist_list[str(l_at.resn) +\n\
+                     ":" +\n\
+                      str(l_at.resi) +\n\
+                      " " +\n\
+                      l_at.name +\n\
+                      " ---- " + \n\
+                      str(p_at.resn) +\n\
+                      ":" +\n\
+                      str(p_at.resi) +\n\
+                      " " +\n\
+                      p_at.name] = cmd.dist("foo", \n\
+                                            "index " +\n\
+                                            str(l_at.index),"index " + str(p_at.index))\n\
+        cmd.delete("foo")\n\
+print("List of all pairwise ligand--protein atom-atom distances:")\n\
+# [print("Distance of " + d + " is " + str(dist_list[d])) for d in dist_list.keys()]\n\
+\n\
+# More compact print statement. Need an f-string format statement.\n\
+[print( d + " " + str(dist_list[d])) for d in dist_list.keys()]\n\
+$0]]></content>
+<tabTrigger>listLigandProteinDistances</tabTrigger>
+<scope></scope>
+<caption>Print a list of protein--ligand distances. Code by Dan Kulp. Updated for Python3.</caption>
+</snippet>

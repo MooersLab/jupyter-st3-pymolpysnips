@@ -1,0 +1,13 @@
+<snippet>
+<content><![CDATA[
+cmd.do('show cartoon;')\n\
+cmd.do('cartoon putty;')\n\
+cmd.do('set cartoon_smooth_loops, 0;')\n\
+cmd.do('set cartoon_flat_sheets, 0;')\n\
+cmd.do('set cartoon_smooth_loops,0;')\n\
+cmd.do('## unset cartoon_smooth_loops;')\n\
+$0]]></content>
+<tabTrigger>puttyCartoon</tabTrigger>
+<scope></scope>
+<caption>Create a putty cartoon. The command may be needed if the above setting does not work. This can happen if using the presets. The command below may be needed if the above setting does not work.This can happen if using the presets. The command below may be needed if the above setting does not work. This can happen if using the presets.</caption>
+</snippet>

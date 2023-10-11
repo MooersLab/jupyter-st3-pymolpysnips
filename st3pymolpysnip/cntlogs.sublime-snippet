@@ -1,0 +1,12 @@
+<snippet>
+<content><![CDATA[
+print("Count the number of log image files in current directory.");\n\
+print("Usage: cntlogs");\n\
+myPath = os.getcwd();\n\
+logCounter = len(glob.glob1(myPath,"*.log"));\n\
+print("Number of number of log image files in the current directory: ", logCounter);\n\
+$0]]></content>
+<tabTrigger>cntlogs</tabTrigger>
+<scope></scope>
+<caption>Count number of *.log files in current directory.</caption>
+</snippet>

@@ -1,0 +1,26 @@
+<snippet>
+<content><![CDATA[
+cmd.do('# Edit the selection that is named ligand here.;')\n\
+cmd.do('create ligand, ${1:/bluComplex/C/A/1101};')\n\
+cmd.do('preset.ball_and_stick(selection=\"ligand\");')\n\
+cmd.do('util.cbaw ligand;')\n\
+cmd.do('set stick_color, white, ligand;')\n\
+cmd.do('set valence, off, ligand;')\n\
+cmd.do('unset valence;')\n\
+cmd.do('# above command is required after using preset;')\n\
+cmd.do('set sphere_color, black, elem C and ligand;')\n\
+cmd.do('set sphere_color, red, elem O and ligand;')\n\
+cmd.do('set sphere_color, blue, elem N and ligand;')\n\
+cmd.do('set sphere_color, lightblue, elem F and ligand;')\n\
+cmd.do('set stick_radius, 0.12;')\n\
+cmd.do('set sphere_quality, 4;')\n\
+cmd.do('set cartoon_ring_finder, 4, ligand;')\n\
+cmd.do('set cartoon_ring_mode, 3, ligand;')\n\
+cmd.do('set cartoon_ring_width, 0.12, ligand;')\n\
+cmd.do('set cartoon_ring_transparency, .0, ligand;')\n\
+cmd.do('show cartoon, ligand;')\n\
+$0]]></content>
+<tabTrigger>bsfr</tabTrigger>
+<scope></scope>
+<caption>Ball-and-stick plus filled ring representation for ligands.</caption>
+</snippet>

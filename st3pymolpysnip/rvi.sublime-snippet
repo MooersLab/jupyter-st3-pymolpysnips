@@ -1,0 +1,96 @@
+<snippet>
+<content><![CDATA[
+def rvj(StoredView=0, decimal_places=2, outname="roundedview.txt"):\n\
+    """\n\
+    rvj() is a modification of the the rv() function (aka the roundview.py) \n\
+    so that it can run in Jupyter notebooks with the ipymol.viewer. \n\
+    A set_view string is printed to the noteobook in a format that is ready \n\
+    for reuse. \n\
+    \n\
+    The ipymol module was developed by Carlos Hernandez:\n\
+    \n\
+    https://github.com/cxhernandez/ipymol\n\
+    \n\
+    The pre-requisites for installing ipymol are as follows:\n\
+    \n\
+    1. Make a jupyter notebook kernel for Python interpreter inside of \n\
+       the Schrodinger PyMOL. See the PyMOL Snippets GitHub Page for \n\
+       a description of how to make one.\n\
+    2. Install the following build of ipymol at the PyMOL prompt.\n\
+       You need to log into your GitHub account first.\n\
+    \n\
+    pip install git+pip install git+https://github.com/cxhernandez/ipymol.git@2a30d6ec1588434e6f0f72a1d572444f89ff535b\n\
+    \n\
+    3. Make a bash alias to this PyMOL app file.\n\
+    \n\
+    4. Launch the jupyter notebook and select the pymol.python kernel.\n\
+    \n\
+    5. Open a terminal instance from the File pulldown in jupyter notebook.\n\
+    \n\
+    6. Enter `pymol -Rq` to launch an interactive instance of PyMOL.\n\
+    \n\
+    7. Enter the following code to load ipymol and conmect to PyMOL\n\
+    \n\
+    from ipymol import viewer as ipv\n\
+    ipv.start()   # Start PyMOL RPC server\n\
+    \n\
+    Now you can change the scene manually and send the display as static \n\
+    image to a cell in the jupyter notebook.\n\
+    \n\
+    It is assumed that the viewer class of the ipymol moduel has been \n\
+    imported as ipv. \n\
+    \n\
+    I made the following modifications of roundview.py.\n\
+    The cmd.get_view was replaced with ipv.get_view.\n\
+    The cmd.extend was replaced with ipv.extend.\n\
+    The myRoundedList was returned for further processing.\n\
+    \n\
+    MIT License\n\
+    \n\
+    Copyright:\n\
+    Blaine Mooers and the OU Board of Regents\n\
+    University of Oklahoma Health Sciences Center\n\
+    Oklahoma City, OK 73104\n\
+    \n\
+    29 April 2020\n\
+    \n\
+    """\n\
+    \n\
+ \n\
+    StoredView = int(StoredView)\n\
+    decimal_places = int(decimal_places)\n\
+ \n\
+    #call the get_view function\n\
+ \n\
+    m = ipv.get_view(StoredView)\n\
+ \n\
+ \n\
+    #Make a list of the elements in the orientation matrix.\n\
+ \n\
+    myList = [m[0], m[1], m[2], m[3], m[4], m[5], m[6],m[7], m[8], m[9],\n\
+              m[10], m[11], m[12], m[13], m[14],m[15], m[16], m[17]]\n\
+ \n\
+    #Round off the matrix elements to two decimal places (two fractional places)\n\
+    #This rounding approach solved the problem of unwanted\n\
+    #whitespaces when I tried to use a string format statement\n\
+ \n\
+    myRoundedList = [round(elem, decimal_places) for elem in myList]\n\
+    \n\
+    #x is the string template for the output. The whitespace is required\n\
+    #between the "set_view" and "("\n\
+ \n\
+    x = "set_view ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17});"\n\
+ \n\
+    # Print to the command history window.\n\
+    print(x.format(*myRoundedList))\n\
+ \n\
+    #Write to a text file.\n\
+    myFile = open("roundedview.txt", "a")\n\
+    myFile.write(x.format(*myRoundedList) + "")\n\
+    myFile.close()\n\
+    return myRoundedList\n\
+$0]]></content>
+<tabTrigger>rvi</tabTrigger>
+<scope></scope>
+<caption>Return settings in rounded format while running PyMOL via the RCP server ipymol in a jupyter notebook. This is a modified version of the roundview.py script.</caption>
+</snippet>

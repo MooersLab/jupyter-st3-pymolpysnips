@@ -1,0 +1,28 @@
+<snippet>
+<content><![CDATA[
+from pymol import cmd\n\
+import glob\n\
+import re\n\
+\n\
+def saveSep(prefix=""):\n\
+  """\n\
+  save_sep <prefix>\n\
+\n\
+  saves multiple objects into multiple files using an optional prefix name.\n\
+\n\
+  e.g. save_sep prefix\n\
+  """\n\
+  obj_list = cmd.get_names("all")\n\
+\n\
+  if obj_list:\n\
+    for i in range(len(obj_list)):\n\
+      obj_name = "%s%s.pdb" % (prefix, obj_list[i])\n\
+      cmd.save(obj_name, obj_list[i])\n\
+      print("Saving %s" %  obj_name)\n\
+  else:\n\
+    print("No objects found")\n\
+$0]]></content>
+<tabTrigger>saveSeppy</tabTrigger>
+<scope></scope>
+<caption>Saves multiple objects into multiple files using an optional prefix name.</caption>
+</snippet>

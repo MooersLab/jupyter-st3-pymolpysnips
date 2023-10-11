@@ -1,0 +1,63 @@
+<snippet>
+<content><![CDATA[
+cmd.do('viewport 900,600;')\n\
+cmd.do('fetch 3nd4, type=pdb, async=0;')\n\
+cmd.do('run ~/Scripts/PyMOLScripts/quat.py;')\n\
+cmd.do('quat 3nd4;')\n\
+cmd.do('show sticks;')\n\
+cmd.do('set stick_radius=0.125;')\n\
+cmd.do('hide everything, name H*;')\n\
+cmd.do('bg_color white;')\n\
+cmd.do('create coorCov, (3nd4_1 and (resi 19 or resi 119 or resi 219 or resi 319 or resi 419 or resi 519 or (resi 3 and name N7)));')\n\
+cmd.do('bond (coorCov//A/NA`19/NA),(coorCov//A/A`3/N7);')\n\
+cmd.do('bond (coorCov//A/NA`19/NA),(coorCov//A/HOH`119/O);')\n\
+cmd.do('bond (coorCov//A/NA`19/NA),(coorCov//A/HOH`219/O);')\n\
+cmd.do('bond (coorCov//A/NA`19/NA),(coorCov//A/HOH`319/O);')\n\
+cmd.do('bond (coorCov//A/NA`19/NA),(coorCov//A/HOH`519/O);')\n\
+cmd.do('distance (3nd4_1 and chain Aand resi 19 and name NA), (3nd4_1 and chain A and resi 519);')\n\
+cmd.do('distance (3nd4_1 and chain A and resi 19 and name NA), (3nd4_1 and chain A and resi 419);')\n\
+cmd.do('distance (3nd4_1 and chain A and resi 19 and name NA), (3nd4_1 and chain A and resi 319);')\n\
+cmd.do('distance (3nd4_1 and chain A and resi 19 and name NA), (3nd4_1 and chain A and resi 219);')\n\
+cmd.do('show nb_spheres; ')\n\
+cmd.do('set nb_spheres_size, .35;')\n\
+cmd.do('distance hbond1,/3nd4_1/1/A/HOH`119/O, /3nd4_1/1/A/A`3/OP2;')\n\
+cmd.do('distance hbond2,/3nd4_1/1/A/HOH`319/O, /3nd4_1/1/A/A`3/OP2;')\n\
+cmd.do('distance hbond3,/3nd4_1/1/A/HOH`91/O,/3nd4_1/1/A/HOH`119/O;')\n\
+cmd.do('distance hbond4,/3nd4_1/1/A/G`4/N7,/3nd4_1/1/A/HOH`91/O;')\n\
+cmd.do('distance hbond5,/3nd4_1/1/A/G`4/O6, /3nd4_1/1/A/HOH`419/O;')\n\
+cmd.do('distance hbond6,/3nd4_1/1/A/HOH`91/O,/3nd4_1/1/A/G`4/OP2;')\n\
+cmd.do('distance hbond7,/3nd4_1/1/A/HOH`319/O,/3nd4_1/1/A/G`2/OP2;')\n\
+cmd.do('distance  hbond9,/3nd4_1/1/A/HOH`419/O,/3nd4_2/2/A/HOH`74/O;')\n\
+cmd.do('distance hbond10,/3nd4_2/2/A/C`15/O2,/3nd4_1/1/A/G`2/N2;')\n\
+cmd.do('distance hbond11, /3nd4_2/2/A/C`15/N3,/3nd4_1/1/A/G`2/N1;')\n\
+cmd.do('distance hbond12,/3nd4_2/2/A/C`15/N4,/3nd4_1/1/A/G`2/O6;')\n\
+cmd.do('distance hbond13, /3nd4_2/2/A/U`14/N3,/3nd4_1/1/A/A`3/N1;')\n\
+cmd.do('distance hbond14,3nd4_2/2/A/U`14/O4,/3nd4_1/1/A/A`3/N6;')\n\
+cmd.do('distance hbond15, /3nd4_2/2/A/C`13/N4,/3nd4_1/1/A/G`4/O6;')\n\
+cmd.do(' distance hbond16,/3nd4_2/2/A/C`13/N3, /3nd4_1/1/A/G`4/N1;')\n\
+cmd.do('distance hbond17, /3nd4_1/1/A/G`4/N2,/3nd4_2/2/A/C`13/O2;')\n\
+cmd.do('distance hbond18,/3nd4_1/1/A/G`2/N2,/3nd4_2/2/A/C`15/O2;')\n\
+cmd.do('distance hbond19,/3nd4_1/1/A/HOH`91/O,/3nd4_1/1/A/G`4/OP2;    ')\n\
+cmd.do('set depth_cue=0;')\n\
+cmd.do('set ray_trace_fog=0;')\n\
+cmd.do('set dash_color, black;')\n\
+cmd.do('set label_font_id, 5;')\n\
+cmd.do('set label_size, 36;')\n\
+cmd.do('set label_position, (0.5, 1.0, 2.0);')\n\
+cmd.do('set label_color, black;')\n\
+cmd.do('set dash_gap, 0.2;')\n\
+cmd.do('set dash_width, 2.0;')\n\
+cmd.do('set dash_length, 0.2;')\n\
+cmd.do('set label_color, black;')\n\
+cmd.do('set dash_gap, 0.2;')\n\
+cmd.do('set dash_width, 2.0;')\n\
+cmd.do('set dash_length, 0.2;')\n\
+cmd.do('select carbon, element C;')\n\
+cmd.do('color yellow, carbon;')\n\
+cmd.do('disable carbon;')\n\
+cmd.do('set_view(-0.9,0.34,-0.26,0.33,0.18,-0.93,-0.27,-0.92,-0.28,-0.07,-0.23,-27.83,8.63,19.85,13.2,16.0,31.63,-20.0)')\n\
+$0]]></content>
+<tabTrigger>coordinate</tabTrigger>
+<scope></scope>
+<caption>Coordinate covalent bonds to metals and H-bonds from RNA.</caption>
+</snippet>

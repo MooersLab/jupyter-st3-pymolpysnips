@@ -1,0 +1,166 @@
+<snippet>
+<content><![CDATA[
+#!python\n\
+ \n\
+##############################################################################\n\
+#\n\
+# @SUMMARY: -- QKabsch.py.  A python implementation of the optimal superposition\n\
+#     of two sets of vectors as proposed by Kabsch 1976 & 1978.\n\
+#\n\
+# @AUTHOR: Jason Vertrees\n\
+# @COPYRIGHT: Jason Vertrees (C), 2005-2007\n\
+# @LICENSE: Released under GPL:\n\
+# This program is free software; you can redistribute it and/or modify\n\
+#    it under the terms of the GNU General Public License as published by\n\
+#    the Free Software Foundation; either version 2 of the License, or\n\
+#    (at your option) any later version.\n\
+# This program is distributed in the hope that it will be useful, but WITHOUT\n\
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS\n\
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n\
+#\n\
+# You should have received a copy of the GNU General Public License along with\n\
+# this program; if not, write to the Free Software Foundation, Inc., 51 Franklin\n\
+# Street, Fifth Floor, Boston, MA 02110-1301, USA \n\
+#\n\
+# DATE  : 2007-01-01\n\
+# REV   : 2\n\
+# REQUIREMENTS: numpy\n\
+#\n\
+#\n\
+# Modified optAlign.py to use C1 prime carbon atoms of RNA for alignment.\n\
+# Jan. 29, 2020 \n\
+# Blaine Mooers, PhD\n\
+# Univ. of Oklahoma Health Sciences Center\n\
+#\n\
+#############################################################################\n\
+from array import *\n\
+ \n\
+# system stuff\n\
+import os\n\
+import copy\n\
+ \n\
+# pretty printing\n\
+import pprint\n\
+ \n\
+# for importing as a plugin into PyMol\n\
+from pymol import cmd\n\
+from pymol import stored\n\
+from pymol import selector\n\
+ \n\
+# using numpy for linear algebra\n\
+import numpy\n\
+ \n\
+def optAlignRNA( sel1, sel2 ):\n\
+    """\n\
+    optAlignRNA performs the Kabsch alignment algorithm upon the C1" carbons of two selections.\n\
+    Example: optAlignRNA 1JU7 and i. 1-16 and n. C1", 1CLL and i. 4-146 and n. C1"\n\
+ \n\
+    Two RMSDs are returned.  One comes from the Kabsch algorithm and the other from\n\
+    PyMOL based upon your selections.\n\
+    \n\
+    This function can be run in a for loop to fit multiple structures  with a common prefix name:\n\
+    \n\
+    for x in cmd.get_names(): optAlignRNA(x, "1JU7_0001")\n\
+     \n\
+    or get the rmsds for all combinations, do the following:\n\
+     \n\
+    [[optAlignRNA(x, y) for x in cmd.get_names()] for y in cmd.get_names()]\n\
+\n\
+    """\n\
+    cmd.reset()\n\
+ \n\
+    # make the lists for holding coordinates\n\
+    # partial lists\n\
+    stored.sel1 = []\n\
+    stored.sel2 = []\n\
+    # full lists\n\
+    stored.mol1 = []\n\
+    stored.mol2 = []\n\
+ \n\
+    # -- CUT HERE\n\
+    sel1 += " and N. C1""\n\
+    sel2 += " and N. C1""\n\
+    # -- CUT HERE\n\
+ \n\
+    # Get the selected coordinates.  We\n\
+    # align these coords.\n\
+    cmd.iterate_state(1, selector.process(sel1), "stored.sel1.append([x,y,z])")\n\
+    cmd.iterate_state(1, selector.process(sel2), "stored.sel2.append([x,y,z])")\n\
+ \n\
+    # get molecule name\n\
+    mol1 = cmd.identify(sel1,1)[0][0]\n\
+    mol2 = cmd.identify(sel2,1)[0][0]\n\
+ \n\
+    # Get all molecule coords.  We do this because\n\
+    # we have to rotate the whole molcule, not just\n\
+    # the aligned selection\n\
+    cmd.iterate_state(1, mol1, "stored.mol1.append([x,y,z])")\n\
+    cmd.iterate_state(1, mol2, "stored.mol2.append([x,y,z])")\n\
+ \n\
+    # check for consistency\n\
+    assert len(stored.sel1) == len(stored.sel2)\n\
+    L = len(stored.sel1)\n\
+    assert L > 0\n\
+ \n\
+    # must alway center the two proteins to avoid\n\
+    # affine transformations.  Center the two proteins\n\
+    # to their selections.\n\
+    COM1 = numpy.sum(stored.sel1,axis=0) / float(L)\n\
+    COM2 = numpy.sum(stored.sel2,axis=0) / float(L)\n\
+    stored.sel1 -= COM1\n\
+    stored.sel2 -= COM2\n\
+ \n\
+    # Initial residual, see Kabsch.\n\
+    E0 = numpy.sum( numpy.sum(stored.sel1 * stored.sel1,axis=0),axis=0) + numpy.sum( numpy.sum(stored.sel2 * stored.sel2,axis=0),axis=0)\n\
+ \n\
+    #\n\
+    # This beautiful step provides the answer.  V and Wt are the orthonormal\n\
+    # bases that when multiplied by each other give us the rotation matrix, U.\n\
+    # S, (Sigma, from SVD) provides us with the error!  Isn"t SVD great!\n\
+    V, S, Wt = numpy.linalg.svd( numpy.dot( numpy.transpose(stored.sel2), stored.sel1))\n\
+ \n\
+    # we already have our solution, in the results from SVD.\n\
+    # we just need to check for reflections and then produce\n\
+    # the rotation.  V and Wt are orthonormal, so their det"s\n\
+    # are +/-1.\n\
+    reflect = float(str(float(numpy.linalg.det(V) * numpy.linalg.det(Wt))))\n\
+ \n\
+    if reflect == -1.0:\n\
+        S[-1] = -S[-1]\n\
+        V[:,-1] = -V[:,-1]\n\
+ \n\
+    RMSD = E0 - (2.0 * sum(S))\n\
+    RMSD = numpy.sqrt(abs(RMSD / L))\n\
+ \n\
+    #U is simply V*Wt\n\
+    U = numpy.dot(V, Wt)\n\
+ \n\
+    # rotate and translate the molecule\n\
+    stored.sel2 = numpy.dot((stored.mol2 - COM2), U)\n\
+    stored.sel2 = stored.sel2.tolist()\n\
+    # center the molecule\n\
+    stored.sel1 = stored.mol1 - COM1\n\
+    stored.sel1 = stored.sel1.tolist()\n\
+ \n\
+    # let PyMol know about the changes to the coordinates\n\
+    cmd.alter_state(1,mol1,"(x,y,z)=stored.sel1.pop(0)")\n\
+    cmd.alter_state(1,mol2,"(x,y,z)=stored.sel2.pop(0)")\n\
+ \n\
+    #print("Moved: %s Reference: %s RMSD = %f" % mol1, mol2, RMSD)\n\
+    print("% s, % s,% 5.3f" % (mol1, mol2, RMSD))\n\
+ \n\
+    # make the alignment OBVIOUS\n\
+    cmd.hide("everything")\n\
+    cmd.show("ribbon", sel1 + " or " + sel2)\n\
+    cmd.color("gray70", mol1 )\n\
+    cmd.color("magenta", mol2 )\n\
+    cmd.color("red", "visible")\n\
+    cmd.show("ribbon", "not visible")\n\
+    cmd.center("visible")\n\
+    cmd.orient()\n\
+    cmd.zoom("visible")\n\
+$0]]></content>
+<tabTrigger>optAlignRNA</tabTrigger>
+<scope></scope>
+<caption>OptiAlign.py by Jason Vertree modified for aligning multiple RNA structures.</caption>
+</snippet>

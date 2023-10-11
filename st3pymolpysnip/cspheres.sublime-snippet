@@ -1,0 +1,20 @@
+<snippet>
+<content><![CDATA[
+cmd.do('as spheres;')\n\
+cmd.do('color gray30, chain ${1:A};')\n\
+cmd.do('color white, chain ${2:B};')\n\
+cmd.do('color green, name CL;')\n\
+cmd.do('color brown, resn NAG;')\n\
+cmd.do('color red, resi 381;')\n\
+cmd.do('remove solvent;')\n\
+cmd.do('set specular, 0;')\n\
+cmd.do('set ray_trace_gain, 0;')\n\
+cmd.do('set ray_trace_mode, 3;')\n\
+cmd.do('bg_color white;')\n\
+cmd.do('set ray_trace_color, black;')\n\
+cmd.do('set depth_cue,0;')\n\
+$0]]></content>
+<tabTrigger>cspheres</tabTrigger>
+<scope></scope>
+<caption>Colored spheres.</caption>
+</snippet>

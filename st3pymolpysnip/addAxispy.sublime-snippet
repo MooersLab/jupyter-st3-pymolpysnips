@@ -1,0 +1,69 @@
+<snippet>
+<content><![CDATA[
+from pymol.cgo import *    # get constants\n\
+from pymol import cmd\n\
+\n\
+import math\n\
+\n\
+class Counter:\n\
+    """\n\
+    draw_line\n\
+    source https://www.pymolwiki.org/index.php/Symmetry_Axis\n\
+    \n\
+    Pymol script copyright Matthew O"Meara and Xavier Ambroggio 2007\n\
+    \n\
+    Under  GNU Free Documentation License 1.2\n\
+    \n\
+    Example:\n\
+    \n\
+    draw_axis(x=18.232, y=17.150, z=9.488,i=-.226639, j=0.708772, k=-.668039, r=1, b=0, g=0, width=1, length=100)\n\
+    \n\
+    Updated 15 June 2020 \n\
+    Blaine Mooers\n\
+    \n\
+    Notes:\n\
+    1) Could be useful for the adding a symmery axis, a ncs axis, or scale bar to a scene.\n\
+    2) The postion (xyz) is the middle of the line, not one end as expected for a vector.\n\
+    3) Another example: draw_axis(x=0, y=0, z=0,i=0, j=0, k=1, r=1, b=0, g=0, width=300, length=96) \n\
+    4) Changed print statement to Python3 print function.\n\
+    5) Replaced cmd.extend() with function generator.\n\
+    """\n\
+   def __init__(self):\n\
+       self.state = 1\n\
+counter = Counter()\n\
+\n\
+@cmd.extend\n\
+def draw_axis(x=None, y=None, z=None, i=None, j=None, k=None, length=20.0, r=1.0, g=1.0, b=1.0, width=1.0 ):\n\
+   if x == None or y == None or z == None or i == None or j == None or k== None :\n\
+       print("Usage: draw_axis x,y,z, i,k,j, length, r,g,b, width")\n\
+       print("draw a line centered at (x,y,z) with the direction vector (i,j,k)")\n\
+       print("length, color (r,g,b), and width arguments are optional")\n\
+#        print "For a fun example of the command, run draw_axis_example"\n\
+   else :\n\
+       x,y,z = float(x), float(y), float(z)\n\
+       i,j,k = float(i), float(j), float(k)\n\
+       r,g,b = float(r), float(g), float(b)\n\
+       width = float(width)\n\
+       length = float(length) / 2.0\n\
+\n\
+       x1,y1,z1 = (x+i*length,y+j*length,z+k*length)\n\
+       x2,y2,z2 = (x-i*length,y-j*length,z-k*length)\n\
+\n\
+       obj = [\n\
+           LINEWIDTH, width,\n\
+           BEGIN, LINES,\n\
+\n\
+           COLOR,   r,  g,  b,\n\
+           VERTEX, x1, y1, z1,\n\
+           VERTEX, x2, y2, z2,\n\
+\n\
+           END\n\
+           ]\n\
+\n\
+       cmd.load_cgo(obj,"axis"+str(counter.state))\n\
+       counter.state += 1\n\
+$0]]></content>
+<tabTrigger>addAxispy</tabTrigger>
+<scope></scope>
+<caption>Adds the function draw_axis(). Could be useful for the adding a symmery axis, a ncs axis, or scale bar to a scene.</caption>
+</snippet>

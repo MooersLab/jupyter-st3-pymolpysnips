@@ -1,0 +1,12 @@
+<snippet>
+<content><![CDATA[
+print("Count the number of png image files in current directory.");\n\
+print("Usage: cntpngs");\n\
+myPath = os.getcwd();\n\
+pngCounter = len(glob.glob1(myPath,"*.png"));\n\
+print("Number of number of png image files in the current directory: ", pngCounter);\n\
+$0]]></content>
+<tabTrigger>cntpngs</tabTrigger>
+<scope></scope>
+<caption>Count number of *.png files in current directory.</caption>
+</snippet>

@@ -1,0 +1,11 @@
+<snippet>
+<content><![CDATA[
+print("Count the files in the directory.")\n\
+print("Usage: cntfiles.")\n\
+# simple version for working with CWD\n\
+print("Number of files in current working directory: ", len([name for name in os.listdir(".") if os.path.isfile(name)]))\n\
+$0]]></content>
+<tabTrigger>cntfiles</tabTrigger>
+<scope></scope>
+<caption>Count number of files in current directory.</caption>
+</snippet>

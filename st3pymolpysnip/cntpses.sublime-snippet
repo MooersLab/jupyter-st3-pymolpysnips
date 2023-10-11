@@ -1,0 +1,12 @@
+<snippet>
+<content><![CDATA[
+print("Count the number of *.pse (session) files in current directory.");\n\
+print("Usage: cntpses");\n\
+myPath = os.getcwd();\n\
+pseCounter = len(glob.glob1(myPath,"*.pse"));\n\
+print("Number of *.pse (session) files in the current directory: ", pseCounter);\n\
+$0]]></content>
+<tabTrigger>cntpses</tabTrigger>
+<scope></scope>
+<caption>Count number of *.pse files in current directory.</caption>
+</snippet>

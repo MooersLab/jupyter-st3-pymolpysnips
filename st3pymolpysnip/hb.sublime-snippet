@@ -1,0 +1,13 @@
+<snippet>
+<content><![CDATA[
+cmd.distance("hbonds", "all", "all", "3.2", mode="2")\n\
+cmd.set("dash_gap","0.4")\n\
+cmd.set("dash_color","grey30")\n\
+cmd.set("dash_width","1.5")\n\
+cmd.set("dash_length",".25")\n\
+print("Enter rmhb to remove the hbonds.")\n\
+$0]]></content>
+<tabTrigger>hb</tabTrigger>
+<scope></scope>
+<caption>Creates an object of all H-bonds found by PyMOL.</caption>
+</snippet>

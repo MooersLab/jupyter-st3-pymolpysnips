@@ -1,0 +1,15 @@
+<snippet>
+<content><![CDATA[
+cmd.do('# show the unit cell;')\n\
+cmd.do('show cell;')\n\
+cmd.do('color black, ${1:1lw9};')\n\
+cmd.do('# color by atom with carbons colored green,')\n\
+cmd.do('util.${2:cbag};')\n\
+cmd.do('set cgo_line_width, 2.5;')\n\
+cmd.do('# string filename, int width, int height, float dpi, int ray')\n\
+cmd.do('png  ${3:testCell3}.png, ${4:1600},${5:1600},${6:600},${7:0}')\n\
+$0]]></content>
+<tabTrigger>unitCellEdgesColorBlack</tabTrigger>
+<scope></scope>
+<caption>Color unit cell edges black. The settings for controlling the unit cell color are hard to find.</caption>
+</snippet>

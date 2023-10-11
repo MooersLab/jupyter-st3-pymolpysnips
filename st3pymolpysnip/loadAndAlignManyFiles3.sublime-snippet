@@ -1,0 +1,39 @@
+<snippet>
+<content><![CDATA[
+from pymol import cmd\n\
+import glob\n\
+import re\n\
+\n\
+\n\
+def saveSep(prefix=""):\n\
+    """\n\
+    Saves multiple objects into multiple files using an optional prefix name.\n\
+    This function is can save time.\n\
+\n\
+    Usage in PyMOL:\n\
+\n\
+    saveSep <prefix>\n\
+    \n\
+    Usage in pymol"s Python API:\n\
+\n\
+    cmd.do("saveSep <prefix>")\n\
+ \n\
+    e.g. saveSep prefix\n\
+    """\n\
+    obj_list = cmd.get_names("all")\n\
+\n\
+    if obj_list:\n\
+        for i in range(len(obj_list)):\n\
+            obj_name = "%s%s.pdb" % (prefix, obj_list[i])\n\
+            cmd.save(obj_name, obj_list[i])\n\
+            print("Saving %s" % obj_name)\n\
+    else:\n\
+        print("No objects found")\n\
+\n\
+\n\
+cmd.extend("saveSep", saveSep)\n\
+$0]]></content>
+<tabTrigger>loadAndAlignManyFiles3</tabTrigger>
+<scope></scope>
+<caption>These are the instructions for loading and aligning multiple files.</caption>
+</snippet>

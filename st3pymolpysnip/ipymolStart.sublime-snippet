@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+from ipymol import viewer as ipv;\n\
+ipv.start() # Start PyMOL RPC server;\n\
+$0]]></content>
+<tabTrigger>ipymolStart</tabTrigger>
+<scope></scope>
+<caption>Code to start the RPC server with ipymol. Start pymol in terminal with pymol -R; select pymol.python as the kernel in juptyer. You may have to create this kernel for the Python interpreter that is inside PyMOL.</caption>
+</snippet>

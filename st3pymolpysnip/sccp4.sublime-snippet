@@ -1,0 +1,14 @@
+<snippet>
+<content><![CDATA[
+cmd.do('python;')\n\
+cmd.do('import datetime;')\n\
+cmd.do('from pymol import cmd; ')\n\
+cmd.do('DT =datetime.datetime.now().strftime(\"yr%Ymo%mday%dhr%Hmin%M\");')\n\
+cmd.do('s = str(DT); ')\n\
+cmd.do('cmd.save(stemName+s+\".ccp4\"); ')\n\
+cmd.do('python end;')\n\
+$0]]></content>
+<tabTrigger>sccp4</tabTrigger>
+<scope></scope>
+<caption>Save electron density map flle with timestamp.</caption>
+</snippet>

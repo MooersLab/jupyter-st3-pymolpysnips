@@ -1,0 +1,11 @@
+<snippet>
+<content><![CDATA[
+cmd.do('CB;')\n\
+cmd.do('color cb_lightblue, ss h;')\n\
+cmd.do('color cb_vermillion, ss s;')\n\
+cmd.do('color lightorange, ss l+\"\";')\n\
+$0]]></content>
+<tabTrigger>cblindCartoon</tabTrigger>
+<scope></scope>
+<caption>Color cartoon with colorblind friendly colors. Requires that the pymolshortcuts.py file is loaded. This has been applied to PDB-ID 7JU6. The protein is human RET kinase, and the drug is selpercatinib, a FDA approved drug for treating several cancers.</caption>
+</snippet>

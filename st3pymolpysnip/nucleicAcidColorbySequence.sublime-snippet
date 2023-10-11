@@ -1,0 +1,17 @@
+<snippet>
+<content><![CDATA[
+cmd.do('select rna_A, resn A;')\n\
+cmd.do('select rna_C, resn C;')\n\
+cmd.do('select rna_G, resn G;')\n\
+cmd.do('select rna_U, resn U;')\n\
+cmd.do('select dna_T, resn T;')\n\
+cmd.do('color ${1:yellow}, rna_A;')\n\
+cmd.do('color ${2:red}, rna_C; ')\n\
+cmd.do('color ${3:gray40}, rna_G;')\n\
+cmd.do('color ${4:palecyan}, rna_U;')\n\
+cmd.do('color ${5:brown}, dna_T;')\n\
+$0]]></content>
+<tabTrigger>nucleicAcidColorbySequence</tabTrigger>
+<scope></scope>
+<caption>This code colors the nucleotides by base seqence. It can be applied to any nucleic acid.</caption>
+</snippet>

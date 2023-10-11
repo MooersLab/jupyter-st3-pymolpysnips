@@ -1,0 +1,22 @@
+<snippet>
+<content><![CDATA[
+import os;\n\
+import rdkit;\n\
+from rdkit import Chem;\n\
+from rdkit.Chem import AllChem;\n\
+from rdkit.Chem import PyMol;\n\
+\n\
+s = PyMOL.MolViewer();\n\
+mol = Chem.MolFromSmiles("${1:CCOCCn1c(C2CC[NH+](CCc3ccc(C(C)(C)C(=O)[O-])cc3)CC2)nc2ccccc21}");\n\
+mol = AllChem.AddHs(mol);\n\
+AllChem.EmbedMolecule(mol);\n\
+AllChem.MMFFOptimizeMolecule(mol);\n\
+s.ShowMol(mol, name = "${2:bilastine}", showOnly = False);\n\
+s.Zoom("${2:bilastine}");\n\
+s.SetDisplayStyle("${2:bilastine}", "sticks");\n\
+s.GetPNG(preDelay=5);\n\
+$0]]></content>
+<tabTrigger>rdkrpcChem</tabTrigger>
+<scope></scope>
+<caption>Demo of the use of the RPC server with a drug compound via the rdkit python module.</caption>
+</snippet>

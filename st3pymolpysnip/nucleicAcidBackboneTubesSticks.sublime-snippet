@@ -1,0 +1,20 @@
+<snippet>
+<content><![CDATA[
+cmd.do('set bg_rgb, white;')\n\
+cmd.do('hide everything, all;')\n\
+cmd.do('# Change to the name of your molecular object.;')\n\
+cmd.do('show cartoon, ${1:3nd3};')\n\
+cmd.do('set cartoon_sampling,1;')\n\
+cmd.do('set cartoon_tube_radius, 0.5;')\n\
+cmd.do('set cartoon_ladder_mode, 0;')\n\
+cmd.do('# Set to 0.0 to turn off transparency;')\n\
+cmd.do('set cartoon_transparency, ${2:0.65};')\n\
+cmd.do('# The default strick radisu is 0.25. I think it is too thick.;')\n\
+cmd.do('set stick_radius ${3:0.12};')\n\
+cmd.do('show sticks;')\n\
+cmd.do('hide sticks, element H;')\n\
+$0]]></content>
+<tabTrigger>nucleicAcidBackboneTubesSticks</tabTrigger>
+<scope></scope>
+<caption>This code shows the cartoon backbone tube as 65% transparent. It hides the rungs of the cartoon. It shows all of the non-H atoms are sticks. The motivation is to have the cartoon highlight the backbone without dominanting the scene.</caption>
+</snippet>

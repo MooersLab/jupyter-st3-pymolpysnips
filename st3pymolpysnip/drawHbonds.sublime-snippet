@@ -1,0 +1,13 @@
+<snippet>
+<content><![CDATA[
+cmd.do('hide everything, hydrogens;')\n\
+cmd.do('hide labels;')\n\
+cmd.do('# set the color of the dashed lines representing the H-bond.;')\n\
+cmd.do('set dash_color, ${1:black};')\n\
+cmd.do('set dash_gap, 0.4;')\n\
+cmd.do('set dash_radius, 0.08;')\n\
+$0]]></content>
+<tabTrigger>drawHbonds</tabTrigger>
+<scope></scope>
+<caption>Display H-bonds as dashes colored black.</caption>
+</snippet>

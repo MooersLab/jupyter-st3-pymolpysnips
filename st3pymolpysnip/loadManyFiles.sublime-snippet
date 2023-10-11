@@ -1,0 +1,37 @@
+<snippet>
+<content><![CDATA[
+# Copyright (c) 2004 Robert L. Campbell\n\
+#\n\
+# Modified for use with Python3.\n\
+# Jan. 29, 2020 \n\
+# Blaine Mooers, PhD\n\
+# Univ. of Oklahoma Health Sciences Center\n\
+#\n\
+#\n\
+from pymol import cmd\n\
+import glob\n\
+\n\
+def loadFiles(files):\n\
+  """\n\
+  load_files <files>\n\
+\n\
+  loads multiple files (using filename globbing)\n\
+  into a multiple objects named as the files are (e.g. collection of\n\
+  downloaded PDB files).\n\
+\n\
+  e.g. load_files prot_*.pdb\n\
+  """\n\
+  file_list = glob.glob(files)\n\
+  if file_list:\n\
+    file_list.sort()\n\
+    for i in file_list:\n\
+      #obj_name = i.replace(".pdb","")\n\
+      #cmd.load(file_list[i],obj_name)\n\
+      cmd.load(i)\n\
+  else:\n\
+    print("No files found for pattern %s" % files)\n\
+$0]]></content>
+<tabTrigger>loadManyFiles</tabTrigger>
+<scope></scope>
+<caption>Load into PyMOL multiple files with a common file stem. The is a script by Robert Campbell that has been updated for Python3.</caption>
+</snippet>
