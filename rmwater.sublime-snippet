@@ -1,8 +1,0 @@
-<snippet>
-<content><![CDATA[
-cmd.do('remove resn HOH;')\n\
-$0]]></content>
-<tabTrigger>rmwater</tabTrigger>
-<scope></scope>
-<caption>Remove waters from molecular object.</caption>
-</snippet>
