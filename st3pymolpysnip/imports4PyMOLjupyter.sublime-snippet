@@ -1,0 +1,10 @@
+<snippet>
+<content><![CDATA[
+from pymol import cmd\n\
+from IPython.display import Image\n\
+from IPython.core.display import HTML\n\
+$0]]></content>
+<tabTrigger>imports4PyMOLjupyter</tabTrigger>
+<scope></scope>
+<caption>Imports needed for most uses of pymol in Jupyter. Combination of importPyMOL and importPythonDisplay.</caption>
+</snippet>

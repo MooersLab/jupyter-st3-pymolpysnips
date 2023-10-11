@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+cmd.do('run ~/${1:Scripts/PyMOLScripts}/quat.py;')\n\
+cmd.do('quat;')\n\
+$0]]></content>
+<tabTrigger>bu</tabTrigger>
+<scope></scope>
+<caption>Generate the biological unit using the quat.py script. Edit the path to the file quat.py. You may have to download it from the PyMOL Wiki page.</caption>
+</snippet>

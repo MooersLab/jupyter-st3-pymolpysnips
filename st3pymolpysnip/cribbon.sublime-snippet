@@ -1,0 +1,11 @@
+<snippet>
+<content><![CDATA[
+cmd.do('as cartoon;')\n\
+cmd.do('color red, ss H;')\n\
+cmd.do('color yellow,ss S;')\n\
+cmd.do('color green, ss L+;')\n\
+$0]]></content>
+<tabTrigger>cribbon</tabTrigger>
+<scope></scope>
+<caption>Color ribbon H red, strand yellow, loop green.</caption>
+</snippet>

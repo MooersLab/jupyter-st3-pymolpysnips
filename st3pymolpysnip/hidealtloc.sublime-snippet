@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+cmd.do('select altconf, alt ${1:b}  # select B alternative locators;')\n\
+cmd.do('hide everything, altconf  # hide alt B locators;')\n\
+$0]]></content>
+<tabTrigger>hidealtloc</tabTrigger>
+<scope></scope>
+<caption>Hide the partially occupied atoms with the part b alternate locator.</caption>
+</snippet>

@@ -1,0 +1,13 @@
+<snippet>
+<content><![CDATA[
+cmd.do('show sticks;')\n\
+cmd.do('set stick_radius, 0.12;')\n\
+cmd.do('set stick_ball, on;')\n\
+cmd.do('set stick_ball_ratio, 1.9;')\n\
+cmd.do('show nb_spheres;')\n\
+cmd.do('set nb_spheres_size=0.33;')\n\
+$0]]></content>
+<tabTrigger>bs</tabTrigger>
+<scope></scope>
+<caption>Ball and stick representation.</caption>
+</snippet>

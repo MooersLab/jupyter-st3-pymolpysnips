@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.do('set ellipsoid_color, ${1:red};')\n\
+$0]]></content>
+<tabTrigger>ellipcol</tabTrigger>
+<scope></scope>
+<caption>Set color of thernal ellipsoids. The PDB must have anisotopic temperature factors. See https://pymolwiki.org/index.php/Color_Values for the PyMOL colors.</caption>
+</snippet>

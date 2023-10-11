@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+cmd.do('alter ${1:refine_A_Ave_SM_015_0_370-374-0r}, vdw=3.0;')\n\
+cmd.do('set solvent_radius = 3.0;')\n\
+$0]]></content>
+<tabTrigger>saxsEnvelope</tabTrigger>
+<scope></scope>
+<caption>Display SAXS envelope. Edit to enter the name of the bead model object.</caption>
+</snippet>

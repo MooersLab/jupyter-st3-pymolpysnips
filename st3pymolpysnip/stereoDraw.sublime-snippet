@@ -1,0 +1,12 @@
+<snippet>
+<content><![CDATA[
+cmd.do('stereo walleye; ')\n\
+cmd.do('set ray_shadow, off; ')\n\
+cmd.do('#draw 3200,2000;')\n\
+cmd.do('draw ${1:1600,1000}; ')\n\
+cmd.do('png ${2:aaa}.png;')\n\
+$0]]></content>
+<tabTrigger>stereoDraw</tabTrigger>
+<scope></scope>
+<caption>Stereo draw.</caption>
+</snippet>

@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+# Get the sequences of all molecular objects.;\n\
+print(cmd.get_fastastr("${1:all}"));\n\
+$0]]></content>
+<tabTrigger>fastapy</tabTrigger>
+<scope></scope>
+<caption>Python version of the command to print the sequence from a PDB file in the fasta format.</caption>
+</snippet>

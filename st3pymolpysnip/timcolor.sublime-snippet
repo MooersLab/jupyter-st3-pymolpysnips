@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.do("timcolor")\n\
+$0]]></content>
+<tabTrigger>timcolor</tabTrigger>
+<scope></scope>
+<caption>Run the timcolor function from the pymolshortcuts.py file to color atoms accordings to Tim Mather's biophysical coloring scheme for proteins.</caption>
+</snippet>

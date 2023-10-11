@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+cmd.do('fetch ${1:3nd4}, ${1:3nd4}_2fofc, type=2fofc, async=0;')\n\
+cmd.do('isomesh 2fofcmap, ${1:3nd4}_2fofc, 1, ${1:3nd4}, carve = 1.8;')\n\
+$0]]></content>
+<tabTrigger>fetch2FoFcIsomesh</tabTrigger>
+<scope></scope>
+<caption>Fetch 2FoFc map as an isomesh.</caption>
+</snippet>
