@@ -1,8 +1,0 @@
-<snippet>
-<content><![CDATA[
-cmd.do("yrb")\n\
-$0]]></content>
-<tabTrigger>yrb</tabTrigger>
-<scope></scope>
-<caption>Run the yrb function from the pymolshortcuts.py file. </caption>
-</snippet>
