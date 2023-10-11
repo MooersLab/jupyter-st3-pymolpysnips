@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.do('set valence, on, resn ${1:RZS}; set valence, off, not resn ${2:RZS};')\n\
+$0]]></content>
+<tabTrigger>setLigandValenceOn</tabTrigger>
+<scope></scope>
+<caption>Display the bond valence of ligands only.</caption>
+</snippet>

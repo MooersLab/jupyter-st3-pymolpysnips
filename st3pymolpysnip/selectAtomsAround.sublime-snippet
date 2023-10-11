@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.do('select ${1:nearby}, resn ${2:drug} around ${3:5};')\n\
+$0]]></content>
+<tabTrigger>selectAtomsAround</tabTrigger>
+<scope></scope>
+<caption>Select atoms within a radius around a ligand.</caption>
+</snippet>

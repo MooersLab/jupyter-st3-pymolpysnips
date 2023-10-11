@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.do('select ${1:select1}, elem ${2:N} and chain ${3:A} and not resn ${4:LYS};')\n\
+$0]]></content>
+<tabTrigger>selectAllBut</tabTrigger>
+<scope></scope>
+<caption>Select all nitrogen atom in a selelction except from lysine.</caption>
+</snippet>

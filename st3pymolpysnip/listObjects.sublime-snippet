@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.do('objList = cmd.get_names(\"objects\");print(objList);')\n\
+$0]]></content>
+<tabTrigger>listObjects</tabTrigger>
+<scope></scope>
+<caption>Create a list of objects in the internal gui and print this list to the screen.</caption>
+</snippet>

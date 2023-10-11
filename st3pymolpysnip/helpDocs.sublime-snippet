@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.do('help(help)')\n\
+$0]]></content>
+<tabTrigger>helpDocs</tabTrigger>
+<scope></scope>
+<caption>Return the docstring for the help submodule. This command is more concise:  help help.</caption>
+</snippet>

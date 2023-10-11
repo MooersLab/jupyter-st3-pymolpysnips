@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+cmd.do('alter ${1:3fa0}, resi=str(int(resi)+${2:100});sort;')\n\
+$0]]></content>
+<tabTrigger>renumResi</tabTrigger>
+<scope></scope>
+<caption>Add or substract a residue number offset.</caption>
+</snippet>

@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+cmd.do('set label_distance_digits, ${1:2};')\n\
+cmd.do('set label_angle_digits, ${2:2};')\n\
+$0]]></content>
+<tabTrigger>sigDigits</tabTrigger>
+<scope></scope>
+<caption>Set number of decimals places to show in distance labels.</caption>
+</snippet>

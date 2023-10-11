@@ -1,0 +1,10 @@
+<snippet>
+<content><![CDATA[
+cmd.do('pseudoatom ${1:forLabel};')\n\
+cmd.do('label ${1:forLabel}, \"%0\";')\n\
+cmd.do('set label_color, ${2:red};')\n\
+$0]]></content>
+<tabTrigger>pseudolabel</tabTrigger>
+<scope></scope>
+<caption>Position label with pseudoatom.</caption>
+</snippet>

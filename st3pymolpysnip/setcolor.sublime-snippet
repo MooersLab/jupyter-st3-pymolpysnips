@@ -1,0 +1,9 @@
+<snippet>
+<content><![CDATA[
+cmd.do('set_color ${1:bark}, [${2:0.1, ${3:0.1}, ${4:0.1}];')\n\
+cmd.do('color ${1:bark}, ${5:protein};')\n\
+$0]]></content>
+<tabTrigger>setcolor</tabTrigger>
+<scope></scope>
+<caption>Set color name to a RGB code.</caption>
+</snippet>
